@@ -6,17 +6,19 @@ import {Vista} from './vista.js'
 export class VistaList extends Vista{
 	constructor(controlador, div){
 		super(div)
+		
 		this.controlador = controlador
-		this.inicio=this.div.getElementsByTagName('div')[0]
-		this.listado=this.div.getElementsByTagName('div')[1]
-		this.logo= document.getElementsByTagName('img')[0]
+		this.inicio=this.div.find('div')[0]
+		this.listado=this.div.find('div')[1]
+		this.logo= $('img')[0]
+	
 
 		this.listado.style.display = 'none'
 
-		this.btnListar = this.div.getElementsByTagName('button')[0]
+		this.btnListar = this.div.find('button')[0]
 
-		this.btnListar.onclick = this.listar.bind(this)
-		this.logo.onclick = this.listar.bind(this)
+		this.btnListar.click(this.listar.bind(this))
+		this.logo.click(this.listar.bind(this))
 	}/**
 	 * Metodo que elimina la fachada de carga inicial y cambia a la vista normal
 	 */

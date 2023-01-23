@@ -17,7 +17,8 @@ class Controlador{
 	 * Constructor de la clase
 	 */
 	constructor(){
-		window.onload = this.iniciar.bind(this)
+		$(document).ready(this.iniciar.bind(this))
+		
 	}
 	/**
 	 * Inicializa la aplicaion
@@ -25,8 +26,9 @@ class Controlador{
 	iniciar(){
 		this.modelo = new Modelo()
 		
-		this.head = document.getElementsByTagName('header')[0]
-		this.mainList = document.getElementById('listado')
+		this.head = $('header')
+		
+		
 		this.mainEdit = document.getElementById('edicion')
 		this.mainAlta = document.getElementById('alta')
         this.mainCons = document.getElementById('consulta')
@@ -36,13 +38,13 @@ class Controlador{
 		
 		
 		this.vistaHead = new VistaHead(this,this.head)
-		this.mainList = new VistaList(this, this.mainList)
+		this.mainList = new VistaList(this, $('#listado'))
 		this.mainEdit = new VistaEdit(this, this.mainEdit)
 		this.mainAlta = new VistaAlta(this,this.mainAlta)
         this.mainCons = new VistaCons(this, this.mainCons)
 		this.mainBusq = new VistaBusq(this, this.mainBusq)
 		
-		
+		console.log(this.mainList)
 		this.mainList.mostrar(true)
 	}	
 	/**

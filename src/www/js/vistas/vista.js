@@ -11,8 +11,8 @@ export class Vista{
 	 */
 	mostrar(ver){
 		if(ver)
-			this.div.style.display = 'flex'
+			this.div.css('display','flex')
 		else
-			this.div.style.display = 'none'
+		this.div.css('display','none')
 	}
 }
