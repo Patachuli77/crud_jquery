@@ -9,38 +9,38 @@ export class VistaEdit extends Vista{
 		super(div)
 		this.controlador = controlador
 		
-		this.nombre =this.div.getElementsByTagName('input')[1]
-		this.talla=this.div.getElementsByTagName('input')[2]
-		this.dia=this.div.getElementsByTagName('input')[3]
-		this.descripcion=this.div.getElementsByTagName('textarea')[0]
-		this.tipo = this.div.getElementsByTagName("select")[0]
-		this.op1=this.div.getElementsByTagName('option')[0]
-		this.op2=this.div.getElementsByTagName('option')[1]
-		this.op3=this.div.getElementsByTagName('option')[2]
-		this.op4=this.div.getElementsByTagName('option')[3]
+		this.nombre =this.div.find('input').eq(1)
+		this.talla=this.div.find('input').eq(2)
+		this.dia=this.div.find('input').eq(3)
+		this.descripcion=this.div.find('textarea').eq(0)
+		this.tipo = this.div.find("select").eq(0)
+		this.op1=this.div.find('option').eq(0)
+		this.op2=this.div.find('option').eq(1)
+		this.op3=this.div.find('option').eq(2)
+		this.op4=this.div.find('option').eq(3)
 
-		this.pri=this.div.getElementsByTagName('input')[4]
-		this.ver=this.div.getElementsByTagName('input')[5]
-		this.oto=this.div.getElementsByTagName('input')[6]
-		this.inv=this.div.getElementsByTagName('input')[7]
+		this.pri=this.div.find('input').eq(4)
+		this.ver=this.div.find('input').eq(5)
+		this.oto=this.div.find('input').eq(6)
+		this.inv=this.div.find('input').eq(7)
 
-		this.lbNombre = this.div.getElementsByTagName("label")[1]
-		this.lbTalla = this.div.getElementsByTagName("label")[2]
-		this.lbDia = this.div.getElementsByTagName("label")[3]
-		this.lbDescripcion = this.div.getElementsByTagName("label")[4]
-		this.lbEstacion = this.div.getElementsByTagName("label")[6]
+		this.lbNombre = this.div.find("label").eq(1)
+		this.lbTalla = this.div.find("label").eq(2)
+		this.lbDia = this.div.find("label").eq(3)
+		this.lbDescripcion = this.div.find("label").eq(4)
+		this.lbEstacion = this.div.find("label").eq(6)
 
-		this.h3Error1 = this.div.getElementsByTagName("h3")[0]
-		this.h3Error2 = this.div.getElementsByTagName("h3")[1]
+		this.h3Error1 = this.div.find("h3").eq(0)
+		this.h3Error2 = this.div.find("h3").eq(1)
 
-		this.btnBorrar = this.div.getElementsByTagName('a')[1]
-		this.btnBorrar.onclick = this.borrar.bind(this)
+		this.btnBorrar = this.div.find('a').eq(1)
+		this.btnBorrar.click(this.borrar.bind(this))
 		
-		this.btnEditar = this.div.getElementsByTagName('a')[2]
-		this.btnEditar.onclick = this.guardar.bind(this)
+		this.btnEditar = this.div.find('a').eq(2)
+		this.btnEditar.click(this.guardar.bind(this))
 
-		this.btnVolver = this.div.getElementsByTagName('a')[0]
-		this.btnVolver.onclick = this.volver.bind(this)
+		this.btnVolver = this.div.find('a').eq(0)
+		this.btnVolver.click(this.volver.bind(this))
 		
 		
 		this.id = ''

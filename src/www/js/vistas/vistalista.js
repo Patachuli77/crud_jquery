@@ -8,14 +8,15 @@ export class VistaList extends Vista{
 		super(div)
 		
 		this.controlador = controlador
-		this.inicio=this.div.find('div')[0]
-		this.listado=this.div.find('div')[1]
-		this.logo= $('img')[0]
+		this.inicio=this.div.find('div').eq(0)
+		this.listado=this.div.find('div').eq(1)
+		this.logo= $('img').eq(0)
 	
 
-		this.listado.style.display = 'none'
+		this.listado.css('display','none')
 
-		this.btnListar = this.div.find('button')[0]
+		this.btnListar = this.div.find('button').eq(0)
+
 
 		this.btnListar.click(this.listar.bind(this))
 		this.logo.click(this.listar.bind(this))
@@ -23,8 +24,8 @@ export class VistaList extends Vista{
 	 * Metodo que elimina la fachada de carga inicial y cambia a la vista normal
 	 */
 	listar(){
-		this.listado.style.display = 'flex'
-		this.inicio.style.display = 'none'
+		this.listado.css('display','flex')
+		this.inicio.css('display','none')
 		this.controlador.listar()
 	}
 	/**
@@ -32,25 +33,22 @@ export class VistaList extends Vista{
 	 * @param {array} lista 
 	 */
 	generarLista(lista){
-		console.log(lista)
-		this.listado.innerHTML = ""
+		//console.log(lista)
+		this.listado.html("")
 		lista.forEach(element => {
-			let p = document.createElement('p')
-			p.innerHTML= element["id"]
-			p.classList.add('oculto')
+			let p = $('<p></p>').text(element["id"]).addClass('oculto')
 			
 
-			let	divCaja = document.createElement('div')
-			divCaja.classList.add('cajaRopa')
-			let img = document.createElement('img')
-			img.setAttribute("src",element["imagenSrc"])
-			let h3 = document.createElement('h3')
-			h3.innerHTML= element["nombre"]
-			divCaja.appendChild(img)
-			divCaja.appendChild(h3)
-			divCaja.appendChild(p)
+			let	divCaja = $('<div></div>').addClass('cajaRopa')
+			let img = $('<img></img>').attr('src', element["imagenSrc"])
+
+			let h3 = $('<h3></h3>').text(element["nombre"])
+
+			divCaja.append(img)
+			divCaja.append(h3)
+			divCaja.append(p)
 				
-			this.listado.appendChild(divCaja)
+			this.listado.append(divCaja)
 
 		});
 
@@ -59,7 +57,7 @@ export class VistaList extends Vista{
 	 * Metodo que añade el on click a cada elemento genereado dinamicamente
 	 */
 	acciones(){
-		this.cajas= this.div.getElementsByClassName('cajaRopa')
+		this.cajas= this.div.find('cajaRopa')
 		for(let caja of this.cajas){
 			let id=caja.lastChild.innerHTML
 			caja.onclick=this.pulsarCaja.bind(this, id)

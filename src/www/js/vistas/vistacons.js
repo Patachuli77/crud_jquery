@@ -8,11 +8,11 @@ export class VistaCons extends Vista{
 		super(div)
 		this.controlador = controlador
 		
-		this.btnEditar = this.div.getElementsByTagName('a')[1]
-		this.btnEditar.onclick = this.modificar.bind(this)
+		this.btnEditar = this.div.find('a').eq(1)
+		this.btnEditar.click(this.modificar.bind(this))
 
-		this.btnVolver = this.div.getElementsByTagName('a')[0]
-		this.btnVolver.onclick = this.volver.bind(this)
+		this.btnVolver = this.div.find('a').eq(0)
+		this.btnVolver.click(this.volver.bind(this))
 	}/**
 	 * Metodo que mete los datos del objeto dentro de su sitio en la vista para poder visualizarlos
 	 * @param {object} ropa 
@@ -30,12 +30,12 @@ export class VistaCons extends Vista{
 		cadena = cadena.substring(0, cadena.length - 2)
 
 
-		let nombre =this.div.getElementsByTagName('h3')[0]
-		let talla=this.div.getElementsByTagName('h3')[1]
-		let dia=this.div.getElementsByTagName('h3')[2]
-		let descripcion=this.div.getElementsByTagName('p')[0]
-		let tipo=this.div.getElementsByTagName('h3')[3]
-		let estacion=this.div.getElementsByTagName('h3')[4]
+		let nombre =this.div.find('h3').eq(0)
+		let talla=this.div.find('h3').eq(1)
+		let dia=this.div.find('h3').eq(2)
+		let descripcion=this.div.find('p').eq(0)
+		let tipo=this.div.find('h3').eq(3)
+		let estacion=this.div.find('h3').eq(4)
 		console.log(ropa.estacion[0])
 		
 		nombre.innerHTML = ropa.nombre

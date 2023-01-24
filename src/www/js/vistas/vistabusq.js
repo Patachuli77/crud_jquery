@@ -8,8 +8,8 @@ export class VistaBusq extends Vista{
 		super(div)
 		this.controlador = controlador
 		
-		this.btnListar = this.div.getElementsByTagName('button')[0]
-		this.btnListar.onclick = this.buscar.bind(this)
+		this.btnListar = this.div.find('button').eq(0)
+		this.btnListar.click(this.buscar.bind(this))
 		
 	}
 	/**
@@ -17,7 +17,7 @@ export class VistaBusq extends Vista{
 	 */
 	buscar(){
 
-		this.texto= this.div.getElementsByTagName('input')[0]
+		this.texto= this.div.find('input').eq(0)
 		
 		this.controlador.buscar(this.texto.value)
 		this.limpiar()

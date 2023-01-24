@@ -5,6 +5,7 @@
 export class Vista{
 	constructor(div){
 		this.div = div 
+		console.log(this.div)
 	}/**
 	 * Metodo que muestra o no las vistas
 	 * @param {boolean} ver 

@@ -6,17 +6,16 @@ export class VistaHead{
 	constructor(controlador, head){
 		this.controlador = controlador
 		this.head = head
-		
-		this.aListar = $('a')[0]
-		this.h1Alta = $('div')[1]
+		this.aListar = this.head.find('a').eq(0)
+		this.h1Alta = this.head.find('div').eq(1)
 
-		this.btnBuscar = $('div')[0]
+		this.btnBuscar = this.head.find('div').eq(0)
 		
 		
-		this.aListar.onclick = this.pulsarLista.bind(this)
-		this.btnBuscar.onclick = this.pulsarBuscar.bind(this)
+		this.aListar.click(this.pulsarLista.bind(this))
+		this.btnBuscar.click(this.pulsarBuscar.bind(this))
 		
-		this.h1Alta.onclick = this.pulsarAlta.bind(this)
+		this.h1Alta.click(this.pulsarAlta.bind(this))
       
 	}/**
 	 * Metodo que llama al controlador para cambiar la vista a listar
