@@ -16,13 +16,13 @@ export class Modelo{
      * @param {funcion} callback 
      */
     insertar(objeto, callback){
-        console.log(objeto)
         this.idb.insertar(objeto, callback)
     }/**
      * Metodo que llama al metodo listar del indexerdb
      * @param {funcion} callback 
      */
     listar(callback){
+       console.log(callback)
         this.idb.listar(callback)
     }
     /**
@@ -56,5 +56,6 @@ export class Modelo{
      */
     guardar(id,ropa,callback){
         this.idb.guardar(id,ropa,callback)
+        
     }
 }

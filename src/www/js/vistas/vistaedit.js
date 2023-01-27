@@ -111,7 +111,7 @@ export class VistaEdit extends Vista{
 		
 		let array = []
 		array.push(this.pri.prop("checked"),this.ver.prop("checked"),this.oto.prop("checked"),this.inv.prop("checked"))
-		console.log(array[0],array[1],array[2],array[3])
+		
 		if(array[0]==false && array[1]==false && array[2]==false&& array[3]==false){
 			valArray= false
 		}

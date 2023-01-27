@@ -51,7 +51,7 @@ export class VistaList extends Vista{
 			divCaja.append(p)
 				
 			this.listado.append(divCaja)
-			console.log(element.id)
+			
 			divCaja.click(this.pulsarCaja.bind(this, element.id))
 
 		});
@@ -62,7 +62,7 @@ export class VistaList extends Vista{
 	 * @param {string} id 
 	 */	
 	pulsarCaja(id){
-		console.log(id)
+		
 		this.controlador.pulsarRopa(id)
 	}
 }

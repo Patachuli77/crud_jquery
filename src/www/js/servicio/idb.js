@@ -38,6 +38,7 @@ export class Idb{
 			peticion.onsuccess=function(){
 				let lista= peticion.result
 				this.listado=lista
+				console.log(callback)
 				callback(this.listado)
 			}
 	}/**
@@ -61,7 +62,7 @@ export class Idb{
 				    cursor.continue()
 			} 
             else {
-				console.log(this.resultados)
+				
 				callback(this.resultados)
 			}
 		}  
@@ -119,7 +120,7 @@ export class Idb{
         }
         peticion.onsuccess=(event) =>{
             const data = event.target.result
-            console.log('Leído', data)
+
            
             data.nombre=ropa.nombre
             data.talla=ropa.talla
@@ -138,6 +139,7 @@ export class Idb{
             }
             peticion2.onsuccess =(event) => {
                 console.log('Se actualizó')
+				console.log(callback)
                 callback()
             }
         }

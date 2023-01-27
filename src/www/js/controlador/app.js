@@ -155,7 +155,7 @@ class Controlador{
 	 * @param {object} ropa 
 	 */
 	guardar(id,ropa){
-		this.modelo.guardar(id,ropa,this.listar.bind(this))
+		this.modelo.guardar(id,ropa,this.listar.bind(this,this.listarOK.bind(this)))
 		this.pulsarHeadList()
 	}
 }
