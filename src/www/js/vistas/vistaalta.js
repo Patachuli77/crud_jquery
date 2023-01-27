@@ -52,11 +52,12 @@ export class VistaAlta extends Vista{
 	validar(num){
 
 		let imagenSrc= "../../src/www/assets/imagenes/camiseta1.jpg"//IGNORAR POR EL MOMENTO
-		let nombre = this.formNombre.val
-		let talla = this.formTalla.val
-		let dia = this.formDia.val //Año mes dia
-		let descripcion = this.formDescripcion.val
-		let tipo = this.formTipo.val
+		let nombre = this.formNombre.val()
+		console.log(nombre)
+		let talla = this.formTalla.val()
+		let dia = this.formDia.val() //Año mes dia
+		let descripcion = this.formDescripcion.val()
+		let tipo = this.formTipo.val()
 		let valArray = true
 		
 		let array = []
@@ -68,28 +69,28 @@ export class VistaAlta extends Vista{
 		
 		if (nombre=='' || talla==''||talla<0 || dia=='' || descripcion=='' || valArray==false){
 			if (nombre==''){
-				this.h3Error1.style.display='block'
-				this.lbNombre.style.color='red'
+				this.h3Error1.css('display','block')
+				this.lbNombre.css('color','red')
 			} 
 			if (talla==''){
-				this.h3Error1.style.display='block'
-				this.lbTalla.style.color='red'
+				this.h3Error1.css('display','block')
+				this.lbTalla.css('color','red')
 			} 
 			if (dia==''){
-				this.h3Error1.style.display='block'
-				this.lbDia.style.color='red'
+				this.h3Error1.css('display','block')
+				this.lbDia.css('color','red')
 			} 
 			if (descripcion==''){
-				this.h3Error1.style.display='block'
-				this.lbDescripcion.style.color='red'
+				this.h3Error1.css('display','block')
+				this.lbDescripcion.css('color','red')
 			} 
 			if (valArray==false){
-				this.h3Error1.style.display='block'
-				this.lbEstacion.style.color='red'
+				this.h3Error1.css('display','block')
+				this.lbEstacion.css('color','red')
 			} 
 			if (talla<0){
-				this.h3Error2.style.display='block'
-				this.lbTalla.style.color='red'
+				this.h3Error2.css('display','block')
+				this.lbTalla.css('color','red')
 			} 	
 		}else{
 
@@ -117,21 +118,18 @@ export class VistaAlta extends Vista{
 	 * Metodo que limpia el formulario cada vez que se inicializa
 	 */
 	limpiar(){
-		this.op1.selected = false
-		this.op2.selected = false
-		this.op3.selected = false
-		this.op4.selected = false
-		this.pri.checked =false
-		this.ver.checked = false	
-		this.oto.checked = false		
-		this.inv.checked = false
+		this.op1.attr('selected','selected')
+		this.pri.prop("checked",false)
+		this.ver.prop("checked",false)	
+		this.oto.prop("checked",false)		
+		this.inv.prop("checked",false)
 
 
 		
-		this.formNombre.value = ''
-		this.formTalla.value = ''
-		this.formDia.value = ''
-		this.formDescripcion.value = ''
+		this.formNombre.val('')
+		this.formTalla.val('')
+		this.formDia.val('')
+		this.formDescripcion.val('')
 
 		this.h3Error2.css('display','none')
 		this.h3Error1.css('display','none')

@@ -73,7 +73,7 @@ export class Idb{
 	 * @param {funcion} callback 
 	 */
 	consultar(id, callback){
-
+		
 		const objectStore = this.conexion.transaction("tabla1","readonly").objectStore("tabla1");
 		this.result 
 		const cursor1 = objectStore.openCursor()

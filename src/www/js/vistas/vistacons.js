@@ -18,6 +18,7 @@ export class VistaCons extends Vista{
 	 * @param {object} ropa 
 	 */
 	mostrarDatos(ropa){
+		console.log(ropa.nombre)
 		let cadena = ''
 		if(ropa.estacion[0]==true){
 			cadena+='Primavera, '}
@@ -38,12 +39,12 @@ export class VistaCons extends Vista{
 		let estacion=this.div.find('h3').eq(4)
 		console.log(ropa.estacion[0])
 		
-		nombre.innerHTML = ropa.nombre
-		talla.innerHTML = ropa.talla
-		dia.innerHTML = ropa.diaComprado
-		descripcion.innerHTML = ropa.descripcion
-		tipo.innerHTML= ropa.tipo
-		estacion.innerHTML= cadena
+		nombre.text(ropa.nombre)
+		talla.text(ropa.talla)
+		dia.text(ropa.diaComprado)
+		descripcion.text(ropa.descripcion)
+		tipo.text(ropa.tipo)
+		estacion.text(cadena)
 	}/**
 	 * Metodo para cambiar a la vista de editar
 	 */

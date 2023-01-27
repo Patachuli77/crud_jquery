@@ -36,6 +36,8 @@ export class VistaList extends Vista{
 		//console.log(lista)
 		this.listado.html("")
 		lista.forEach(element => {
+			
+			
 			let p = $('<p></p>').text(element["id"]).addClass('oculto')
 			
 
@@ -49,24 +51,18 @@ export class VistaList extends Vista{
 			divCaja.append(p)
 				
 			this.listado.append(divCaja)
+			console.log(element.id)
+			divCaja.click(this.pulsarCaja.bind(this, element.id))
 
 		});
 
-		this.acciones()
-	}/**
-	 * Metodo que añade el on click a cada elemento genereado dinamicamente
-	 */
-	acciones(){
-		this.cajas= this.div.find('cajaRopa')
-		for(let caja of this.cajas){
-			let id=caja.lastChild.innerHTML
-			caja.onclick=this.pulsarCaja.bind(this, id)
-	   }
-	}/**
+	}
+	/**
 	 * Metodo que indica al controlador que se ha pulsado una caja
 	 * @param {string} id 
 	 */	
 	pulsarCaja(id){
+		console.log(id)
 		this.controlador.pulsarRopa(id)
 	}
 }

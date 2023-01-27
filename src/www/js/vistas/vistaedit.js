@@ -51,47 +51,46 @@ export class VistaEdit extends Vista{
 	mostrarDatos(ropa){
 		
 		this.limpiar()
+		
 		this.id = ropa.id
 		
-		if(this.op1.value==ropa.tipo)
-			this.op1.selected = true
-		if(this.op2.value==ropa.tipo)
-			this.op2.selected = true
-		if(this.op3.value==ropa.tipo)
-			this.op3.selected = true
-		if(this.op4.value==ropa.tipo)
-			this.op4.selected = true
+		if(this.op1.val()==ropa.tipo)
+			this.op1.attr('selected','selected')
+		if(this.op2.val()==ropa.tipo)
+			this.op2.attr('selected','selected')
+		if(this.op3.val()==ropa.tipo)
+			this.op3.attr('selected','selected')
+		if(this.op4.val()==ropa.tipo)
+			this.op4.attr('selected','selected')
 		
-		this.pri.checked = ropa.estacion[0]
-		this.ver.checked = ropa.estacion[1]		
-		this.oto.checked = ropa.estacion[2]		
-		this.inv.checked = ropa.estacion[3]
+		this.pri.prop("checked",ropa.estacion[0])
+		this.ver.prop("checked",ropa.estacion[1])	
+		this.oto.prop("checked",ropa.estacion[2])	
+		this.inv.prop("checked",ropa.estacion[3])
 		
 		
-		this.nombre.value = ropa.nombre
-		this.talla.value = ropa.talla
-		this.dia.value = ropa.diaComprado
-		this.descripcion.value = ropa.descripcion
+		this.nombre.val(ropa.nombre) 
+		this.talla.val(ropa.talla)
+		this.dia.val(ropa.diaComprado)
+		this.descripcion.val(ropa.descripcion)
 		
 	}
 	/**
 	 * Metodo que limpia el formulario despues de su uso por si acacso
 	 */
 	limpiar(){
-		this.op1.selected = false
-		this.op2.selected = false
-		this.op3.selected = false
-		this.op4.selected = false
-		this.pri.checked =false
-		this.ver.checked = false	
-		this.oto.checked = false		
-		this.inv.checked = false
+		this.op1.attr('selected','selected')
+		
+		this.pri.prop("checked",false)
+		this.ver.prop("checked",false)
+		this.oto.prop("checked",false)		
+		this.inv.prop("checked",false)
 
 		
-		this.nombre.value = ''
-		this.talla.value = ''
-		this.dia.value = ''
-		this.descripcion.value = ''
+		this.nombre.val('')
+		this.talla.val('')
+		this.dia.val('')
+		this.descripcion.val('')
 	}/**
 	 * MEtodo que llama al controlador para borrar
 	 */
@@ -103,15 +102,15 @@ export class VistaEdit extends Vista{
 	 */
 	guardar(){
 		let imagenSrc= "../../src/www/assets/imagenes/camiseta1.jpg"//IGNORAR POR EL MOMENTO
-		let nombre = this.nombre.value
-		let talla = this.talla.value
-		let dia = this.dia.value //Año mes dia
-		let descripcion = this.descripcion.value
-		let tipo = this.tipo.value
+		let nombre = this.nombre.val()
+		let talla = this.talla.val()
+		let dia = this.dia.val() //Año mes dia
+		let descripcion = this.descripcion.val()
+		let tipo = this.tipo.val()
 		let valArray = true
 		
 		let array = []
-		array.push(this.pri.checked,this.ver.checked,this.oto.checked,this.inv.checked)
+		array.push(this.pri.prop("checked"),this.ver.prop("checked"),this.oto.prop("checked"),this.inv.prop("checked"))
 		console.log(array[0],array[1],array[2],array[3])
 		if(array[0]==false && array[1]==false && array[2]==false&& array[3]==false){
 			valArray= false
@@ -119,28 +118,28 @@ export class VistaEdit extends Vista{
 		
 		if (nombre=='' || talla==''||talla<0 || dia=='' || descripcion=='' || valArray==false){
 			if (nombre==''){
-				this.h3Error1.style.display='block'
-				this.lbNombre.style.color='red'
+				this.h3Error1.css('display','block')
+				this.lbNombre.css('color','red')
 			} 
 			if (talla==''){
-				this.h3Error1.style.display='block'
-				this.lbTalla.style.color='red'
+				this.h3Error1.css('display','block')
+				this.lbTalla.css('color','red')
 			} 
 			if (dia==''){
-				this.h3Error1.style.display='block'
-				this.lbDia.style.color='red'
+				this.h3Error1.css('display','block')
+				this.lbDia.css('color','red')
 			} 
 			if (descripcion==''){
-				this.h3Error1.style.display='block'
-				this.lbDescripcion.style.color='red'
+				this.h3Error1.css('display','block')
+				this.lbDescripcion.css('color','red')
 			} 
 			if (valArray==false){
-				this.h3Error1.style.display='block'
-				this.lbEstacion.style.color='red'
+				this.h3Error1.css('display','block')
+				this.lbEstacion.css('color','red')
 			} 
 			if (talla<0){
-				this.h3Error2.style.display='block'
-				this.lbTalla.style.color='red'
+				this.h3Error2.css('display','block')
+				this.lbTalla.css('color','red')
 			} 	
 		}else{
 
@@ -165,12 +164,12 @@ export class VistaEdit extends Vista{
 	 * Metodo para quitar los avisos por datos incorrectos
 	 */
 	quitarErrores(){
-		this.h3Error2.style.display='none'
-		this.h3Error1.style.display='none'
-		this.lbNombre.style.color='white'
-		this.lbTalla.style.color='white'
-		this.lbDia.style.color='white'
-		this.lbDescripcion.style.color='white'
-		this.lbEstacion.style.color='white'
+		this.h3Error2.css('display','none')
+		this.h3Error1.css('display','none')
+		this.lbNombre.css('color','white')
+		this.lbTalla.css('color','white')
+		this.lbDia.css('color','white')
+		this.lbDescripcion.css('color','white')
+		this.lbEstacion.css('color','white')
 	}
 }

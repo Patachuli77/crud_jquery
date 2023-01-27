@@ -19,14 +19,14 @@ export class VistaBusq extends Vista{
 
 		this.texto= this.div.find('input').eq(0)
 		
-		this.controlador.buscar(this.texto.value)
+		this.controlador.buscar(this.texto.val())
 		this.limpiar()
 	}
 	/**
 	 * Metodo que limpia el buscador despues de la busqueda
 	 */
 	limpiar(){
-		this.texto.value=''
+		this.texto.val('')
 	}
 
 }
