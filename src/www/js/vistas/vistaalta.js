@@ -42,9 +42,11 @@ export class VistaAlta extends Vista{
 
 
 		this.btnAceptarForm.click(this.validar.bind(this,1))
+		this.btnAceptarForm.keypress(this.validar.bind(this,1))
 		this.btnAceptarVolver.click(this.validar.bind(this,0))
+		this.btnAceptarVolver.keypress(this.validar.bind(this,0))
 		this.btnCancelar.click(this.volver.bind(this))
-
+		this.btnCancelar.keypress(this.volver.bind(this))
 	}/**
 	 * Metodo que valida los datos y los envia o no al alta dependiendo del resultado
 	 * @param {int} num depende de por donde se llegue al metodo el resultado varia

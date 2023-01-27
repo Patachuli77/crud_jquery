@@ -20,6 +20,10 @@ export class VistaList extends Vista{
 
 		this.btnListar.click(this.listar.bind(this))
 		this.logo.click(this.listar.bind(this))
+
+		this.btnListar.keypress(this.listar.bind(this))
+		this.logo.keypress(this.listar.bind(this))
+		
 	}/**
 	 * Metodo que elimina la fachada de carga inicial y cambia a la vista normal
 	 */
@@ -36,6 +40,7 @@ export class VistaList extends Vista{
 	generarLista(lista){
 		//console.log(lista)
 		this.listado.html("")
+		let i=5
 		lista.forEach(element => {
 			
 			
@@ -50,10 +55,12 @@ export class VistaList extends Vista{
 			divCaja.append(img)
 			divCaja.append(h3)
 			divCaja.append(p)
-				
+			divCaja.attr('tabindex', i)
+			divCaja.attr('role', 'button')
 			this.listado.append(divCaja)
 			divCaja.click(this.pulsarCaja.bind(this, element.id))
-
+			divCaja.keypress(this.pulsarCaja.bind(this, element.id))
+			i++
 		});
 		
 	}

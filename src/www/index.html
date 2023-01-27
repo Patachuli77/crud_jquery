@@ -6,11 +6,11 @@
     </head>
     <body>
         <header>
-            <a class="logo"><img src="../../src/www/assets/imagenes/logo.svg" alt="logo empresa"></a>
-            <div class="resaltado">
+            <a class="logo" role="button"  tabindex="2"><img src="../../src/www/assets/imagenes/logo.svg" alt="logo empresa"></a>
+            <div role="button" tabindex="3" class="resaltado">
                 <h1>Buscar Prendas</h1>
             </div>
-            <div class="resaltado">
+            <div role="button" tabindex="4" class="resaltado">
                 <h1>Añadir Prendas</h1>
             </div>
        </header>
@@ -18,7 +18,7 @@
         <div id="inicio">
             <h1>Bienvenido a tu armario virtual</h1>
             <h2>Presiona el boton para comenzar</h2>
-            <button>Empezar</button>
+            <button tabindex="1">Empezar</button>
         </div>
         <div id="gridRopa">
             
@@ -27,34 +27,34 @@
        <main id="edicion">
         <div id="formularios">
             <label>Foto de la prenda</label>
-            <input type="file" name="foto">
+            <input type="file" tabindex="10000007" name="foto">
             <label>Nombre</label>
-            <input type="text" name="nombre">
+            <input type="text" tabindex="10000008" name="nombre">
             <label>Talla</label>
-            <input type="number" min="0" name="talla">
+            <input type="number" min="0" tabindex="10000009" name="talla">
             <label>Dia comprado</label>
-            <input type="date" name="talla">
+            <input type="date" tabindex="10000010" name="talla">
             <label>Descripcion</label>
-            <textarea name="descripcion" ></textarea>
+            <textarea name="descripcion" tabindex="10000011" ></textarea>
             <label>Tipo</label>
-            <select name="tipo">
+            <select name="tipo" tabindex="10000012">
                 <option value="Parte de arriba">Parte de arriba</option>
                 <option value="Parte de abajo">Parte de abajo</option>
                 <option value="Accesorio">Accesorio</option>
                 <option value="Calzado">Calzado</option>
             </select>
             <label>Estacion</label>
-            <label><input type="checkbox" name="pri"> Primavera</label>
-            <label><input type="checkbox" name="ver"> Verano</label>
-            <label><input type="checkbox" name="oto"> Otoño</label>
-            <label><input type="checkbox" name="inv"> Invierno</label>
+            <label><input type="checkbox" tabindex="10000013" name="pri"> Primavera</label>
+            <label><input type="checkbox" tabindex="10000014" name="ver"> Verano</label>
+            <label><input type="checkbox" tabindex="10000015" name="oto"> Otoño</label>
+            <label><input type="checkbox" tabindex="10000016" name="inv"> Invierno</label>
             <h3 class="error">Rellene las categorias marcadas para continuar</h3>
             <h3 class="error">No se admiten valores negativos en la talla</h3>
         </div>
         <div class="botones">
-            <a><span id="volver">Volver</span></a>
-            <a><span id="eliminar">Eliminar</span></a>
-            <a><span id="guardar">Guardar</span></a>
+            <a><span role="button" id="volver" tabindex="10000017">Volver</span></a>
+            <a><span role="button" id="eliminar" tabindex="10000018">Eliminar</span></a>
+            <a><span role="button" id="guardar" tabindex="10000019">Guardar</span></a>
         </div> 
         </main>
         <main id="alta">  
@@ -108,8 +108,8 @@
                 <h3>Verano, Primavera</h2>
             </div>
             <div class="botones">
-                <a><span id="volver">Volver</span></a>
-                <a><span id="editar">Editar</span></a>
+                <a><span role="button" id="volver" tabindex="10000005">Volver</span></a>
+                <a><span role="button" id="editar" tabindex="10000006">Editar</span></a>
             </div>  
         </main>
         <main id="busqueda">

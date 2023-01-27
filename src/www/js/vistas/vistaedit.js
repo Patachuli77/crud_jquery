@@ -32,15 +32,18 @@ export class VistaEdit extends Vista{
 
 		this.h3Error1 = this.div.find("h3").eq(0)
 		this.h3Error2 = this.div.find("h3").eq(1)
-
+		
 		this.btnBorrar = this.div.find('a').eq(1)
 		this.btnBorrar.click(this.borrar.bind(this))
+		this.btnBorrar.keypress(this.borrar.bind(this))
 		
 		this.btnEditar = this.div.find('a').eq(2)
 		this.btnEditar.click(this.guardar.bind(this))
+		this.btnEditar.keypress(this.guardar.bind(this))
 
 		this.btnVolver = this.div.find('a').eq(0)
 		this.btnVolver.click(this.volver.bind(this))
+		this.btnVolver.keypress(this.volver.bind(this))
 		
 		
 		this.id = ''

@@ -10,9 +10,11 @@ export class VistaCons extends Vista{
 		
 		this.btnEditar = this.div.find('a').eq(1)
 		this.btnEditar.click(this.modificar.bind(this))
+		this.btnEditar.keypress(this.modificar.bind(this))
 
 		this.btnVolver = this.div.find('a').eq(0)
 		this.btnVolver.click(this.volver.bind(this))
+		this.btnVolver.keypress(this.volver.bind(this))
 	}/**
 	 * Metodo que mete los datos del objeto dentro de su sitio en la vista para poder visualizarlos
 	 * @param {object} ropa 

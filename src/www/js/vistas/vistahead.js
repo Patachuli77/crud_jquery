@@ -13,9 +13,13 @@ export class VistaHead{
 		
 		
 		this.aListar.click(this.pulsarLista.bind(this))
+		this.aListar.keypress(this.pulsarLista.bind(this))
+		
 		this.btnBuscar.click(this.pulsarBuscar.bind(this))
+		this.btnBuscar.keypress(this.pulsarBuscar.bind(this))
 		
 		this.h1Alta.click(this.pulsarAlta.bind(this))
+		this.h1Alta.keypress(this.pulsarAlta.bind(this))
       
 	}/**
 	 * Metodo que llama al controlador para cambiar la vista a listar

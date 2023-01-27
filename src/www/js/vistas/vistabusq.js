@@ -10,6 +10,7 @@ export class VistaBusq extends Vista{
 		
 		this.btnListar = this.div.find('button').eq(0)
 		this.btnListar.click(this.buscar.bind(this))
+		this.btnListar.keypress(this.buscar.bind(this))
 		
 	}
 	/**
