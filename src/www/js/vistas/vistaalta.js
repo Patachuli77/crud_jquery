@@ -53,7 +53,7 @@ export class VistaAlta extends Vista{
 
 		let imagenSrc= "../../src/www/assets/imagenes/camiseta1.jpg"//IGNORAR POR EL MOMENTO
 		let nombre = this.formNombre.val()
-		console.log(nombre)
+		
 		let talla = this.formTalla.val()
 		let dia = this.formDia.val() //Año mes dia
 		let descripcion = this.formDescripcion.val()
@@ -62,7 +62,7 @@ export class VistaAlta extends Vista{
 		
 		let array = []
 		array.push(this.pri.prop("checked"),this.ver.prop("checked"),this.oto.prop("checked"),this.inv.prop("checked"))
-		console.log(array[0],array[1],array[2],array[3])
+		
 		if(array[0]==false && array[1]==false && array[2]==false&& array[3]==false){
 			valArray= false
 		}
