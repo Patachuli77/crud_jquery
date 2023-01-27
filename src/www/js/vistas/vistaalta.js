@@ -29,7 +29,6 @@ export class VistaAlta extends Vista{
 		this.ver = this.div.find("input").eq(5)
 		this.oto = this.div.find("input").eq(6)
 		this.inv = this.div.find("input").eq(7)
-
 		this.lbNombre = this.div.find("label").eq(1)
 		this.lbTalla = this.div.find("label").eq(2)
 		this.lbDia = this.div.find("label").eq(3)
@@ -45,12 +44,13 @@ export class VistaAlta extends Vista{
 		this.btnAceptarForm.click(this.validar.bind(this,1))
 		this.btnAceptarVolver.click(this.validar.bind(this,0))
 		this.btnCancelar.click(this.volver.bind(this))
+
 	}/**
 	 * Metodo que valida los datos y los envia o no al alta dependiendo del resultado
 	 * @param {int} num depende de por donde se llegue al metodo el resultado varia
 	 */
 	validar(num){
-
+		
 		let imagenSrc= "../../src/www/assets/imagenes/camiseta1.jpg"//IGNORAR POR EL MOMENTO
 		let nombre = this.formNombre.val()
 		
@@ -70,27 +70,27 @@ export class VistaAlta extends Vista{
 		if (nombre=='' || talla==''||talla<0 || dia=='' || descripcion=='' || valArray==false){
 			if (nombre==''){
 				this.h3Error1.css('display','block')
-				this.lbNombre.css('color','red')
+				this.lbNombre.addClass("textoerror",1000)
 			} 
 			if (talla==''){
 				this.h3Error1.css('display','block')
-				this.lbTalla.css('color','red')
+				this.lbTalla.addClass("textoerror",1000)
 			} 
 			if (dia==''){
 				this.h3Error1.css('display','block')
-				this.lbDia.css('color','red')
+				this.lbDia.addClass("textoerror",1000)
 			} 
 			if (descripcion==''){
 				this.h3Error1.css('display','block')
-				this.lbDescripcion.css('color','red')
+				this.lbDescripcion.addClass("textoerror",1000)
 			} 
 			if (valArray==false){
 				this.h3Error1.css('display','block')
-				this.lbEstacion.css('color','red')
+				this.lbEstacion.addClass("textoerror",1000)
 			} 
 			if (talla<0){
 				this.h3Error2.css('display','block')
-				this.lbTalla.css('color','red')
+				this.lbTalla.addClass("textoerror",1000)
 			} 	
 		}else{
 
@@ -133,10 +133,10 @@ export class VistaAlta extends Vista{
 
 		this.h3Error2.css('display','none')
 		this.h3Error1.css('display','none')
-		this.lbNombre.css('color','white')
-		this.lbTalla.css('color','white')
-		this.lbDia.css('color','white')
-		this.lbDescripcion.css('color','white')
-		this.lbEstacion.css('color','white')
+		this.lbNombre.removeClass("textoerror")
+		this.lbTalla.removeClass("textoerror")
+		this.lbDia.removeClass("textoerror")
+		this.lbDescripcion.removeClass("textoerror")
+		this.lbEstacion.removeClass("textoerror")
 	}
 }

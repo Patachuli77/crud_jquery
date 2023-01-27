@@ -63,6 +63,7 @@ class Controlador{
 	 * Metodo que muestra la vista del alta
 	 */
 	pulsarHeadAlta(){
+		this.mainAlta.limpiar()
 		this.mainList.mostrar(false)
 		this.mainEdit.mostrar(false)
 		this.mainAlta.mostrar(true)

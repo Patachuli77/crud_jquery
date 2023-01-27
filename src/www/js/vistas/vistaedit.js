@@ -51,7 +51,7 @@ export class VistaEdit extends Vista{
 	mostrarDatos(ropa){
 		
 		this.limpiar()
-		
+		this.quitarErrores()
 		this.id = ropa.id
 		
 		if(this.op1.val()==ropa.tipo)
@@ -119,33 +119,34 @@ export class VistaEdit extends Vista{
 		if (nombre=='' || talla==''||talla<0 || dia=='' || descripcion=='' || valArray==false){
 			if (nombre==''){
 				this.h3Error1.css('display','block')
-				this.lbNombre.css('color','red')
+				this.lbNombre.addClass("textoerror",1000)
 			} 
 			if (talla==''){
 				this.h3Error1.css('display','block')
-				this.lbTalla.css('color','red')
+				this.lbTalla.addClass("textoerror",1000)
 			} 
 			if (dia==''){
 				this.h3Error1.css('display','block')
-				this.lbDia.css('color','red')
+				this.lbDia.addClass("textoerror",1000)
 			} 
 			if (descripcion==''){
 				this.h3Error1.css('display','block')
-				this.lbDescripcion.css('color','red')
+				this.lbDescripcion.addClass("textoerror",1000)
 			} 
 			if (valArray==false){
 				this.h3Error1.css('display','block')
-				this.lbEstacion.css('color','red')
+				this.lbEstacion.addClass("textoerror",1000)
 			} 
 			if (talla<0){
 				this.h3Error2.css('display','block')
-				this.lbTalla.css('color','red')
+				this.lbTalla.addClass("textoerror",1000)
 			} 	
 		}else{
 
 			let objeto = new Ropa(imagenSrc,nombre,talla,dia,descripcion,tipo,array)
 			this.controlador.guardar(this.id,objeto)
 			this.limpiar()
+			
 		}
 
 	
@@ -166,10 +167,10 @@ export class VistaEdit extends Vista{
 	quitarErrores(){
 		this.h3Error2.css('display','none')
 		this.h3Error1.css('display','none')
-		this.lbNombre.css('color','white')
-		this.lbTalla.css('color','white')
-		this.lbDia.css('color','white')
-		this.lbDescripcion.css('color','white')
-		this.lbEstacion.css('color','white')
+		this.lbNombre.removeClass("textoerror")
+		this.lbTalla.removeClass("textoerror")
+		this.lbDia.removeClass("textoerror")
+		this.lbDescripcion.removeClass("textoerror")
+		this.lbEstacion.removeClass("textoerror")
 	}
 }

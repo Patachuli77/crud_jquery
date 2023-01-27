@@ -12,7 +12,7 @@ export class VistaList extends Vista{
 		this.listado=this.div.find('div').eq(1)
 		this.logo= $('img').eq(0)
 	
-
+	
 		this.listado.css('display','none')
 
 		this.btnListar = this.div.find('button').eq(0)
@@ -24,9 +24,10 @@ export class VistaList extends Vista{
 	 * Metodo que elimina la fachada de carga inicial y cambia a la vista normal
 	 */
 	listar(){
-		this.listado.css('display','flex')
-		this.inicio.css('display','none')
+		this.listado.show("fade",700)
+		this.inicio.hide(400)
 		this.controlador.listar()
+		this.listado.sortable()
 	}
 	/**
 	 * Metodo que genera la estructura de la lista y la mete en la vista
@@ -51,11 +52,10 @@ export class VistaList extends Vista{
 			divCaja.append(p)
 				
 			this.listado.append(divCaja)
-			
 			divCaja.click(this.pulsarCaja.bind(this, element.id))
 
 		});
-
+		
 	}
 	/**
 	 * Metodo que indica al controlador que se ha pulsado una caja
