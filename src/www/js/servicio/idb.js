@@ -38,7 +38,6 @@ export class Idb{
 			peticion.onsuccess=function(){
 				let lista= peticion.result
 				this.listado=lista
-				console.log(callback)
 				callback(this.listado)
 			}
 	}/**
@@ -131,7 +130,7 @@ export class Idb{
             
 
             const peticion2 = objectStore.put(data)
-            this.listar()
+        
             peticion2.onerror =(event) =>{
                 console.log('No se pudo actualizar')
                 
@@ -139,7 +138,6 @@ export class Idb{
             }
             peticion2.onsuccess =(event) => {
                 console.log('Se actualizó')
-				console.log(callback)
                 callback()
             }
         }

@@ -61,6 +61,12 @@ export class VistaAlta extends Vista{
 		let descripcion = this.formDescripcion.val()
 		let tipo = this.formTipo.val()
 		let valArray = true
+		let div =$('<div></div>')
+		let p = $('<p></p>').text("Su prenda ha sido añadida correctamente, revise el listado")
+		div.attr('title', 'Enhorabuena')
+		div.append(p)
+		
+		
 		
 		let array = []
 		array.push(this.pri.prop("checked"),this.ver.prop("checked"),this.oto.prop("checked"),this.inv.prop("checked"))
@@ -99,6 +105,7 @@ export class VistaAlta extends Vista{
 			let objeto = new Ropa(imagenSrc,nombre,talla,dia,descripcion,tipo,array)
 			this.controlador.insertar(objeto)
 			this.limpiar()
+			div.dialog()
 			if(num==0){
 				
 				this.volver()

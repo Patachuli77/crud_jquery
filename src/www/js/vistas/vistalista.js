@@ -11,9 +11,14 @@ export class VistaList extends Vista{
 		this.inicio=this.div.find('div').eq(0)
 		this.listado=this.div.find('div').eq(1)
 		this.logo= $('img').eq(0)
-	
+		this.spanBusq= $('div').eq(0)
+		this.spanList= $('div').eq(1)
+		
 	
 		this.listado.css('display','none')
+		this.spanBusq.css('display','none')
+		this.spanList.css('display','none')
+		
 
 		this.btnListar = this.div.find('button').eq(0)
 
@@ -28,7 +33,10 @@ export class VistaList extends Vista{
 	 * Metodo que elimina la fachada de carga inicial y cambia a la vista normal
 	 */
 	listar(){
+
 		this.listado.show("fade",700)
+		this.spanBusq.show("fade",700)
+		this.spanList.show("fade",700)
 		this.inicio.hide(400)
 		this.controlador.listar()
 		this.listado.sortable()
@@ -41,27 +49,33 @@ export class VistaList extends Vista{
 		//console.log(lista)
 		this.listado.html("")
 		let i=5
-		lista.forEach(element => {
+		if(lista==""){
+			let h1 = $('<h1></h1>').text("Para comenzar seleccione añadir prenda en la esquina superior izquierda")
+			this.listado.append(h1)
+		}else{
+			lista.forEach(element => {
 			
 			
-			let p = $('<p></p>').text(element["id"]).addClass('oculto')
+				let p = $('<p></p>').text(element["id"]).addClass('oculto')
+				
+	
+				let	divCaja = $('<div></div>').addClass('cajaRopa')
+				let img = $('<img></img>').attr('src', element["imagenSrc"])
+	
+				let h3 = $('<h3></h3>').text(element["nombre"])
+	
+				divCaja.append(img)
+				divCaja.append(h3)
+				divCaja.append(p)
+				divCaja.attr('tabindex', i)
+				divCaja.attr('role', 'button')
+				this.listado.append(divCaja)
+				divCaja.click(this.pulsarCaja.bind(this, element.id))
+				divCaja.keypress(this.pulsarCaja.bind(this, element.id))
+				i++
+			});
 			
-
-			let	divCaja = $('<div></div>').addClass('cajaRopa')
-			let img = $('<img></img>').attr('src', element["imagenSrc"])
-
-			let h3 = $('<h3></h3>').text(element["nombre"])
-
-			divCaja.append(img)
-			divCaja.append(h3)
-			divCaja.append(p)
-			divCaja.attr('tabindex', i)
-			divCaja.attr('role', 'button')
-			this.listado.append(divCaja)
-			divCaja.click(this.pulsarCaja.bind(this, element.id))
-			divCaja.keypress(this.pulsarCaja.bind(this, element.id))
-			i++
-		});
+		}
 		
 	}
 	/**

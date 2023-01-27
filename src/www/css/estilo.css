@@ -36,6 +36,7 @@ header a.logo img{
 header div.resaltado{
     padding: 10px;
     flex-shrink: 1;
+    display: none;
 }
 header div.resaltado h1{
     color: white ;
@@ -128,6 +129,15 @@ main#alta div.botones button#cancelar{
 }
 main#alta div.botones button.aceptar{
     background-color: lightgreen;
+}
+.ui-dialog{
+    background-color: lightgreen;
+}
+.ui-dialog-titlebar{
+    background-color: green;
+}
+.ui-dialog-titlebar-close{
+    float:right;
 }
 /************EDITAR*****************/
 main#edicion div.botones{

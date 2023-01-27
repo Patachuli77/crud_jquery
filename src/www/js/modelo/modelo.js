@@ -22,7 +22,6 @@ export class Modelo{
      * @param {funcion} callback 
      */
     listar(callback){
-       console.log(callback)
         this.idb.listar(callback)
     }
     /**
